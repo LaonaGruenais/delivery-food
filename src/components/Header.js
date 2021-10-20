@@ -1,10 +1,25 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from 'react'
+import { Link } from 'react-router-dom'
 
 class Header extends React.Component {
-  render() {
+  render () {
     return (
-    <div>
+      <div>
+        <nav>
+          <ul>
+            <li>
+              <Link to='/'>Accueil</Link>
+            </li>
+            <li>
+              <Link to='/restaurants'>Restaurants</Link>
+            </li>
+            <li>
+              <Link to='/auth'>Auth</Link>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    /* <div>
     <nav>
         <ul className='menu'>
             <li>
@@ -15,10 +30,9 @@ class Header extends React.Component {
             </li>
         </ul>
     </nav>
-</div>
+</div> */
     )
   }
-
 }
 
-export default Header;
+export default Header

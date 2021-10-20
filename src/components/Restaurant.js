@@ -1,27 +1,27 @@
-import React from 'react';
+import React from 'react'
 
 class Restaurant extends React.Component {
-  
+  // getImagerestaurantsrant() {
+  //   this.props.restaurants.Photos[0].url;
+  //   https://strapi.myidea.fr/{id}/uploads/
+  // }
 
-    render(){
-        if(!this.props.restaurant){
-        return(
-            <p>Pas de donnée</p>
-        )
-            }
-            return(
-            <div>
-                <h2> {this.props.restaurant.title} </h2>
-                <p> {this.props.restaurant.content}</p>
-                <button onClick={this.handleEdit}> ✏️ </button>
-                <button onClick={this.toggleFavorite}> {this.props.note.isFavorite ? '❤️' : '🤍'}</button>
-                <button onClick={this.handleDelete}>🗑</button>
-            </div>
-            
-        )
+  render () {
+    const { restaurant } = this.props
+    if (!restaurant) {
+      return (
+        <p>Pas de données</p>
+      )
     }
- 
+    return (
+      <div className='card-restaurants'>
+        {restaurant.Photos &&
+          <img src={`https://strapi.myidea.fr/${restaurant.Photos[0].url}`} />}
+        <h3 className='title-restaurantsrant'>{restaurant.name}</h3>
+        <p className='content-restaurantsrant'>{restaurant.description}</p>
+      </div>
+    )
+  }
 }
 
-export default Restaurant;
-
+export default Restaurant

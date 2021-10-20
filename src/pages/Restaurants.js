@@ -1,4 +1,5 @@
 import React from 'react';
+import RestaurantsList from '../components/RestaurantsList';
 import { getRestaurants } from '../services/api';
 
 class Restaurants extends React.Component {
@@ -14,11 +15,14 @@ componentDidMount(){
 }
 
 getData = async () =>{
-await getRestaurants()
+const restaurants = await getRestaurants()
+this.setState({ restaurants })
 }
 
   render() {
-    return <p>RESTAURANTS</p>;
+    return (
+      <RestaurantsList restaurants={this.state.restaurants} />
+      )
   } 
 }
 
