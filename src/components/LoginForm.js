@@ -9,7 +9,8 @@ function LoginForm ({ submit, error }) {
 
   const handleChange = (e) => {
     setFormData({
-      ...formData
+      ...formData,
+      [e.target.name]: e.target.value
     })
   }
 
@@ -42,7 +43,7 @@ function LoginForm ({ submit, error }) {
             error &&
             (
               <div>
-                <h4>Identifiants invalides</h4>
+                <h4>{JSON.stringify(error)}</h4>
               </div>
             )
 }

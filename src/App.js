@@ -10,24 +10,40 @@ import Header from './components/Header'
 import Restaurants from './pages/Restaurants'
 import Home from './pages/Home'
 import Auth from './pages/Auth'
+import Restaurant from './pages/Restaurant'
+import Cart from './components/Cart'
+import { CartProvider } from './contexts/CartContext'
+import { AuthProvider } from './contexts/AuthContext'
+import Order from './pages/Order'
 
 class App extends React.Component {
   render () {
     return (
       <div className='App'>
         <Router>
-          <Header />
-          <Switch>
-            <Route path='/auth'>
-              <Auth />
-            </Route>
-            <Route path='/restaurants'>
-              <Restaurants />
-            </Route>
-            <Route path='/'>
-              <Home />
-            </Route>
-          </Switch>
+          <CartProvider>
+            <AuthProvider>
+              <Header />
+              <Cart />
+              <Switch>
+                <Route path='/order'>
+                  <Order />
+                </Route>
+                <Route path='/restaurant/:id'>
+                  <Restaurant />
+                </Route>
+                <Route path='/auth'>
+                  <Auth />
+                </Route>
+                <Route path='/restaurants'>
+                  <Restaurants />
+                </Route>
+                <Route path='/'>
+                  <Home />
+                </Route>
+              </Switch>
+            </AuthProvider>
+          </CartProvider>
         </Router>
 
       </div>

@@ -2,12 +2,11 @@
   text-align: center;
 }
 
-.menu {
-  background-color: beige;
-  display: flex;
+li {
+  color: coral;
 }
 
-.text-menu {
-  color:coral;
-  padding-left: 40px;
+ul {
+  display: flex;
+  justify-content: right;
 }
